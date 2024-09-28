@@ -25,7 +25,7 @@ void main() async {
       ),
     );
 
-    String? Newtheme = prefsWithCache.getString('Theme')!;
+    String? Newtheme = prefsWithCache.getString('Theme')??'light';
 
 
      WidgetsFlutterBinding.ensureInitialized();
@@ -37,7 +37,7 @@ void main() async {
       ),
     );
 
-    String? Newlocale = prefssWithCache.getString('locale')!;
+    String? Newlocale = prefssWithCache.getString('locale')??'en';
 
 
   WidgetsFlutterBinding.ensureInitialized();
@@ -79,6 +79,7 @@ class _MyAppState extends State<MyApp> {
     var provider = Provider.of<AppConfig>(context);
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       initialRoute: loginScreen.routName,
